@@ -1,0 +1,36 @@
+.path-mod-matchmysound .matchmysoundframe {position: relative;width: 100%;height: 100%;}
+
+/** General Styles **/
+.path-mod-matchmysound .userpicture,
+.path-mod-matchmysound .picture.user,
+.path-mod-matchmysound .picture.teacher {width:35px;height: 35px;vertical-align:top;}
+.path-mod-matchmysound .feedback .files,
+.path-mod-matchmysound .feedback .grade,
+.path-mod-matchmysound .feedback .outcome,
+.path-mod-matchmysound .feedback .finalgrade {float: right;}
+.path-mod-matchmysound .feedback .disabledfeedback {width: 500px;height: 250px;}
+.path-mod-matchmysound .feedback .from {float: left;}
+.path-mod-matchmysound .files img {margin-right: 4px;}
+.path-mod-matchmysound .files a {white-space:nowrap;}
+.path-mod-matchmysound .late {color: red;}
+.path-mod-matchmysound .message {text-align: center;}
+
+/** Styles for submissions.php **/
+#page-mod-matchmysound-submissions fieldset.felement {margin-left: 16%;}
+#page-mod-matchmysound-submissions form#options div {text-align:right;margin-left:auto;margin-right:20px;}
+#page-mod-matchmysound-submissions .header .commands {display: inline;}
+#page-mod-matchmysound-submissions .picture {width: 35px;}
+#page-mod-matchmysound-submissions .fullname,
+#page-mod-matchmysound-submissions .timemodified,
+#page-mod-matchmysound-submissions .timemarked {text-align: left;}
+#page-mod-matchmysound-submissions .submissions .grade,
+#page-mod-matchmysound-submissions .submissions .outcome,
+#page-mod-matchmysound-submissions .submissions .finalgrade {text-align: right;}
+#page-mod-matchmysound-submissions .qgprefs #optiontable {text-align:right;margin-left:auto;}
+
+/* Styles for admin */
+.path-admin-mod-matchmysound .mform .fitem .fitemtitle { min-width:18em;padding-right:1em } /* Prevent setting titles from wrapping */
+
+/* Styles for instructor editing an external tool */
+
+.path-mod-matchmysound .mform .fitem .fitemtitle { min-width:14em;padding-right:1em } /* Prevent setting titles from wrapping */
