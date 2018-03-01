@@ -66,7 +66,7 @@ $PAGE->set_context($context);
 
 $url = new moodle_url('/mod/matchmysound/view.php', array('id'=>$cm->id));
 $PAGE->set_url($url);
-print_r($matchmysound);
+
 $launchcontainer = matchmysound_get_launch_container($matchmysound, $toolconfig);
 
 if ($launchcontainer == MATCHMYSOUND_LAUNCH_CONTAINER_EMBED_NO_BLOCKS) {
@@ -123,7 +123,7 @@ if ($launchcontainer == MATCHMYSOUND_LAUNCH_CONTAINER_WINDOW ) {
     // Output script to make the iframe be as large as possible.
     $resize = '
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
-        <script src="embedder.js" type="text/javascript"></script>
+        <script src="https://notes.matchmysound.com/scripts/embedder.js" type="text/javascript"></script>
         <script type="text/javascript">
         //<![CDATA[
             YUI().use("yui2-dom", function(Y) {

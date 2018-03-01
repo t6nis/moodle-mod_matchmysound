@@ -110,7 +110,7 @@ if ($review > 0) {
     // Output script to make the iframe be as large as possible.
     $resize = '
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
-        <script src="embedder.js" type="text/javascript"></script>
+        <script src="https://notes.matchmysound.com/scripts/embedder.js" type="text/javascript"></script>
         <script type="text/javascript">// <![CDATA[
         window.onload = function() {
           $(\'iframe\').map(function(ind,obj) { mms_resizer(obj); });
