@@ -109,6 +109,11 @@ if ($matchmysound->showtitlelaunch) {
 if ($matchmysound->showdescriptionlaunch && $matchmysound->intro) {
     echo $OUTPUT->box(format_module_intro('matchmysound', $matchmysound, $cm->id), 'generalbox description', 'intro');
 }
+
+// Add MMS embeddersjs.
+$mms_config = get_config('matchmysound');
+$embedderjs = str_replace('/lti/', '/scripts/embedder.js', $mms_config->baseurl);
+
 //has_capability('mod/matchmysound:grade', $context) ||
 if ($launchcontainer == MATCHMYSOUND_LAUNCH_CONTAINER_WINDOW ) {
     echo "<script language=\"javascript\">//<![CDATA[\n";
@@ -123,7 +128,7 @@ if ($launchcontainer == MATCHMYSOUND_LAUNCH_CONTAINER_WINDOW ) {
     // Output script to make the iframe be as large as possible.
     $resize = '
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
-        <script src="https://notes.matchmysound.com/scripts/embedder.js" type="text/javascript"></script>
+        <script src="'.$embedderjs.'" type="text/javascript"></script>
         <script type="text/javascript">
         //<![CDATA[
             YUI().use("yui2-dom", function(Y) {
