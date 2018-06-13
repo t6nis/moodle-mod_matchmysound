@@ -81,14 +81,14 @@ foreach ($students as $key => $value) {
     $grade = matchmysound_review_read_grade($matchmysound, $value->id);
     $records = $DB->get_records('matchmysound_submission', array('matchmysoundid' => $matchmysound->id, 'userid' => $value->id), 'datesubmitted');
     $submitteddate = '';
-    foreach ($records as $key => $record) {        
+    foreach ($records as $key => $record) {
         if (!empty($record->datesubmitted)) {
-            $submitteddate = date('d.m.Y H:i', $record->datesubmitted); 
+            $submitteddate = date('d.m.Y H:i', $record->datesubmitted);
             $link = html_writer::link(new moodle_url('/mod/matchmysound/submissions_review.php', array('id' => $cm->id, 'review' => $value->id)), 'Review' /*array('target' => '_blank')*/);
         }
         if (empty($grade)) {
             $grade = 0;
-        }        
+        }
     }
     $row = array($value->firstname.' '.$value->lastname, $value->email, $submitteddate, $grade, $link);
     $table->data[] = $row;
@@ -108,20 +108,17 @@ echo $OUTPUT->heading(get_string('submissions', 'matchmysound'), 3);
 
 if ($review > 0) {
     // Request the launch content with an iframe tag.
-    echo '<iframe id="contentframe" height="600px" width="100%" src="launch.php?id='.$cm->id.'&review='.$review.'"></iframe>';
+    echo '<iframe id="contentframe" data-mms-embed style="height:400px;width:100%" src="launch.php?id='.$cm->id.'&review='.$review.'"></iframe>';
 
     // Output script to make the iframe be as large as possible.
     $resize = '
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
         <script src="'.$embedderjs.'" type="text/javascript"></script>
         <script type="text/javascript">// <![CDATA[
         window.onload = function() {
           $(\'iframe\').map(function(ind,obj) { mms_resizer(obj); });
           $(\'html,body\').css({\'overflowY\': \'scroll\'});
         };
-        var ssh = function() { $(\'iframe\').map(function(ind,obj) {
-        $(obj).css({\'height\':obj.height});  }); };
-        window.onresize = function() { setTimeout(ssh,500); };
         // ]]></script>
         <script type="text/javascript">
         //<![CDATA[
@@ -156,7 +153,7 @@ if ($review > 0) {
 ';
 
     echo $resize;
-    
+
 } else {
     echo html_writer::table($table);
 }

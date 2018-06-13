@@ -123,11 +123,11 @@ if ($launchcontainer == MATCHMYSOUND_LAUNCH_CONTAINER_WINDOW ) {
     echo "<p>".get_string("basicmatchmysound_in_new_window", "matchmysound")."</p>\n";
 } else {
     // Request the launch content with an iframe tag.
-    echo '<iframe id="contentframe" height="600px" width="100%" src="launch.php?id='.$cm->id.'"></iframe>';
+    echo '<iframe id="contentframe" data-mms-embed style="height:400px;width:100%" src="launch.php?id='.$cm->id.'"></iframe>';
 
     // Output script to make the iframe be as large as possible.
     $resize = '
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
         <script src="'.$embedderjs.'" type="text/javascript"></script>
         <script type="text/javascript">
         //<![CDATA[
@@ -152,13 +152,10 @@ if ($launchcontainer == MATCHMYSOUND_LAUNCH_CONTAINER_WINDOW ) {
                 resize();
                 setInterval(resize, 250);
             });
-            window.onload = function() {              
+            window.onload = function() {
               $(\'iframe\').map(function(ind,obj) { mms_resizer(obj); });
-              $(\'body\').css({\'overflowY\': \'scroll\'});              
+              $(\'body\').css({\'overflowY\': \'scroll\'});
             };
-            var ssh = function() { $(\'iframe\').map(function(ind,obj) {
-            $(obj).css({\'height\':obj.height});  }); };
-            window.onresize = function() { setTimeout(ssh,500); };
         //]]
         </script>
 ';
